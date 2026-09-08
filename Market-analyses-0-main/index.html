@@ -1,0 +1,1031 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#080b16">
+
+  <title>AI Analyses</title>
+
+  <meta
+    name="description"
+    content="AI-powered chart analysis, OTC analysis and future market signals."
+  >
+
+  <link rel="icon" href="https://i.ibb.co/BV5L4b5t/IMG-20260907-210044-668.jpg">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- =========================
+       HEADER
+  ========================== -->
+  <header class="topbar">
+
+    <div class="brand">
+      <img
+        src="https://i.ibb.co/BV5L4b5t/IMG-20260907-210044-668.jpg"
+        alt="AI Analyses Logo"
+        class="brand-logo"
+      >
+
+      <div class="brand-text">
+        <h1>AI Analyses</h1>
+        <span>AI Market Intelligence</span>
+      </div>
+    </div>
+
+    <div class="top-actions">
+
+      <button
+        id="installBtn"
+        class="install-btn"
+        type="button"
+        hidden
+      >
+        📲 Install App
+      </button>
+
+      <button
+        id="menuBtn"
+        class="icon-btn"
+        type="button"
+        aria-label="Open menu"
+      >
+        ☰
+      </button>
+
+    </div>
+
+  </header>
+
+
+  <!-- =========================
+       SIDE MENU
+  ========================== -->
+  <aside id="sideMenu" class="side-menu">
+
+    <div class="side-menu-header">
+
+      <div class="menu-profile">
+        <img
+          src="https://i.ibb.co/BV5L4b5t/IMG-20260907-210044-668.jpg"
+          alt="AI Analyses"
+        >
+
+        <div>
+          <strong>AI Analyses</strong>
+          <small>Smart Market Tools</small>
+        </div>
+      </div>
+
+      <button
+        id="closeMenuBtn"
+        class="close-btn"
+        type="button"
+        aria-label="Close menu"
+      >
+        ×
+      </button>
+
+    </div>
+
+
+    <nav class="menu-nav">
+
+      <button
+        class="menu-item active"
+        type="button"
+        data-section="dashboard"
+      >
+        <span>🏠</span>
+        <span>Dashboard</span>
+      </button>
+
+      <button
+        class="menu-item"
+        type="button"
+        data-section="future"
+      >
+        <span>🔮</span>
+        <span>Future Signals</span>
+      </button>
+
+      <button
+        class="menu-item"
+        type="button"
+        data-section="real"
+      >
+        <span>📊</span>
+        <span>Real Market Analysis</span>
+      </button>
+
+      <button
+        class="menu-item"
+        type="button"
+        data-section="otc"
+      >
+        <span>🧪</span>
+        <span>OTC Analysis</span>
+      </button>
+
+      <button
+        class="menu-item"
+        type="button"
+        data-section="settings"
+      >
+        <span>⚙️</span>
+        <span>Settings</span>
+      </button>
+
+    </nav>
+
+
+    <div class="menu-footer">
+
+      <div class="status-dot">
+        <span></span>
+        AI System Ready
+      </div>
+
+      <small>
+        Multi-AI market analysis system
+      </small>
+
+    </div>
+
+  </aside>
+
+
+  <!-- Overlay -->
+  <div id="menuOverlay" class="menu-overlay"></div>
+
+
+  <!-- =========================
+       MAIN
+  ========================== -->
+  <main class="container">
+
+
+    <!-- =========================
+         HERO
+    ========================== -->
+    <section class="hero-section">
+
+      <div class="hero-content">
+
+        <div class="hero-badge">
+          <span class="pulse"></span>
+          MULTI-AI MARKET ANALYZER
+        </div>
+
+        <h2>
+          Smarter Analysis.
+          <span>Better Decisions.</span>
+        </h2>
+
+        <p>
+          Analyze trading charts with multiple AI models and generate
+          intelligent market signals from one powerful platform.
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         DASHBOARD
+    ========================== -->
+    <section
+      id="dashboardSection"
+      class="app-section active-section"
+    >
+
+      <div class="section-title">
+
+        <div>
+          <span class="eyebrow">WELCOME</span>
+
+          <h2>AI Market Dashboard</h2>
+
+          <p>
+            Choose an analysis tool below to get started.
+          </p>
+        </div>
+
+      </div>
+
+
+      <div class="feature-grid">
+
+
+        <!-- Future Signals -->
+        <article class="feature-card future-card">
+
+          <div class="feature-icon">
+            🔮
+          </div>
+
+          <div class="feature-content">
+
+            <h3>Future Signals</h3>
+
+            <p>
+              Select a market and ask the AI system for a directional
+              forecast with confidence information.
+            </p>
+
+            <button
+              class="primary-btn"
+              type="button"
+              data-go="future"
+            >
+              Get Future Signal →
+            </button>
+
+          </div>
+
+        </article>
+
+
+        <!-- Real Market -->
+        <article class="feature-card real-card">
+
+          <div class="feature-icon">
+            📈
+          </div>
+
+          <div class="feature-content">
+
+            <h3>Real Market Analysis</h3>
+
+            <p>
+              Upload a trading chart screenshot and let multiple AI
+              models analyze the visible market structure.
+            </p>
+
+            <button
+              class="primary-btn"
+              type="button"
+              data-go="real"
+            >
+              Analyze Chart →
+            </button>
+
+          </div>
+
+        </article>
+
+
+        <!-- OTC -->
+        <article class="feature-card otc-card">
+
+          <div class="feature-icon">
+            🧪
+          </div>
+
+          <div class="feature-content">
+
+            <h3>OTC Market Analysis</h3>
+
+            <p>
+              Upload an OTC chart image and receive an AI-based
+              UP/DOWN analysis.
+            </p>
+
+            <button
+              class="primary-btn"
+              type="button"
+              data-go="otc"
+            >
+              Analyze OTC →
+            </button>
+
+          </div>
+
+        </article>
+
+
+      </div>
+
+
+      <!-- AI Providers -->
+      <div class="providers-section">
+
+        <div class="section-title compact">
+
+          <div>
+            <span class="eyebrow">POWERED BY</span>
+
+            <h3>Multi-AI Voting</h3>
+          </div>
+
+        </div>
+
+
+        <div class="provider-grid">
+
+          <div class="provider-card">
+            <div class="provider-logo openai-logo">
+              AI
+            </div>
+
+            <div>
+              <strong>OpenAI</strong>
+              <small>ChatGPT</small>
+            </div>
+          </div>
+
+
+          <div class="provider-card">
+            <div class="provider-logo xai-logo">
+              X
+            </div>
+
+            <div>
+              <strong>xAI</strong>
+              <small>Grok</small>
+            </div>
+          </div>
+
+
+          <div class="provider-card">
+            <div class="provider-logo gemini-logo">
+              G
+            </div>
+
+            <div>
+              <strong>Google</strong>
+              <small>Gemini</small>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         FUTURE SIGNALS
+    ========================== -->
+    <section
+      id="futureSection"
+      class="app-section"
+    >
+
+      <div class="section-title">
+
+        <div>
+
+          <span class="eyebrow">FORECAST ENGINE</span>
+
+          <h2>Future Signals</h2>
+
+          <p>
+            Select a market and generate an AI-based directional signal.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <div class="analysis-panel">
+
+        <div class="form-group">
+
+          <label for="marketSelect">
+            Select Market
+          </label>
+
+          <select id="marketSelect">
+
+            <option value="">
+              Choose a market
+            </option>
+
+            <option value="EUR/USD">
+              EUR/USD
+            </option>
+
+            <option value="GBP/USD">
+              GBP/USD
+            </option>
+
+            <option value="USD/JPY">
+              USD/JPY
+            </option>
+
+            <option value="USD/CHF">
+              USD/CHF
+            </option>
+
+            <option value="AUD/USD">
+              AUD/USD
+            </option>
+
+            <option value="USD/CAD">
+              USD/CAD
+            </option>
+
+            <option value="NZD/USD">
+              NZD/USD
+            </option>
+
+            <option value="EUR/GBP">
+              EUR/GBP
+            </option>
+
+            <option value="EUR/JPY">
+              EUR/JPY
+            </option>
+
+            <option value="GBP/JPY">
+              GBP/JPY
+            </option>
+
+            <option value="XAU/USD">
+              Gold / XAU/USD
+            </option>
+
+            <option value="BTC/USD">
+              Bitcoin / BTC/USD
+            </option>
+
+          </select>
+
+        </div>
+
+
+        <div class="form-group">
+
+          <label for="futureTimeframe">
+            Timeframe
+          </label>
+
+          <select id="futureTimeframe">
+
+            <option value="1m">1 Minute</option>
+            <option value="5m">5 Minutes</option>
+            <option value="15m">15 Minutes</option>
+            <option value="30m">30 Minutes</option>
+            <option value="1h">1 Hour</option>
+
+          </select>
+
+        </div>
+
+
+        <button
+          id="futureBtn"
+          class="main-action-btn"
+          type="button"
+        >
+          🔮 Generate Future Signal
+        </button>
+
+
+        <div
+          id="futureLoading"
+          class="loading-box"
+          hidden
+        >
+
+          <div class="loader"></div>
+
+          <span>
+            AI models are analyzing...
+          </span>
+
+        </div>
+
+
+        <div
+          id="futureResult"
+          class="result-box"
+          hidden
+        >
+
+          <div class="result-header">
+            <span>AI Signal</span>
+            <span id="futureConfidence">
+              --%
+            </span>
+          </div>
+
+          <div
+            id="futureDirection"
+            class="signal-direction"
+          >
+            WAITING
+          </div>
+
+          <div
+            id="futureReason"
+            class="signal-reason"
+          ></div>
+
+          <div
+            id="futureVotes"
+            class="ai-votes"
+          ></div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         REAL MARKET
+    ========================== -->
+    <section
+      id="realSection"
+      class="app-section"
+    >
+
+      <div class="section-title">
+
+        <div>
+
+          <span class="eyebrow">
+            IMAGE ANALYSIS
+          </span>
+
+          <h2>Real Market Analysis</h2>
+
+          <p>
+            Upload your trading chart screenshot for AI analysis.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <div class="upload-panel">
+
+        <label
+          for="realChartInput"
+          class="upload-area"
+          id="realUploadArea"
+        >
+
+          <div class="upload-icon">
+            📤
+          </div>
+
+          <h3>
+            Upload Chart Screenshot
+          </h3>
+
+          <p>
+            JPG, JPEG, PNG or WEBP
+          </p>
+
+          <span class="upload-hint">
+            Tap here to choose an image
+          </span>
+
+        </label>
+
+
+        <input
+          id="realChartInput"
+          type="file"
+          accept="image/png,image/jpeg,image/webp"
+          hidden
+        />
+
+
+        <div
+          id="realPreview"
+          class="image-preview"
+          hidden
+        >
+
+          <img
+            id="realPreviewImage"
+            src=""
+            alt="Chart Preview"
+          >
+
+          <button
+            id="removeRealImage"
+            class="remove-image"
+            type="button"
+          >
+            ×
+          </button>
+
+        </div>
+
+
+        <div class="form-group">
+
+          <label for="realTimeframe">
+            Chart Timeframe
+          </label>
+
+          <select id="realTimeframe">
+
+            <option value="1m">1 Minute</option>
+            <option value="5m">5 Minutes</option>
+            <option value="15m">15 Minutes</option>
+            <option value="30m">30 Minutes</option>
+            <option value="1h">1 Hour</option>
+            <option value="4h">4 Hours</option>
+
+          </select>
+
+        </div>
+
+
+        <button
+          id="realAnalyzeBtn"
+          class="main-action-btn"
+          type="button"
+        >
+          📊 Analyze Real Market
+        </button>
+
+
+        <div
+          id="realLoading"
+          class="loading-box"
+          hidden
+        >
+
+          <div class="loader"></div>
+
+          <span>
+            AI is reading your chart...
+          </span>
+
+        </div>
+
+
+        <div
+          id="realResult"
+          class="result-box"
+          hidden
+        >
+
+          <div class="result-header">
+            <span>Final Signal</span>
+
+            <span id="realConfidence">
+              --%
+            </span>
+          </div>
+
+          <div
+            id="realDirection"
+            class="signal-direction"
+          >
+            WAITING
+          </div>
+
+          <div
+            id="realReason"
+            class="signal-reason"
+          ></div>
+
+          <div
+            id="realVotes"
+            class="ai-votes"
+          ></div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         OTC
+    ========================== -->
+    <section
+      id="otcSection"
+      class="app-section"
+    >
+
+      <div class="section-title">
+
+        <div>
+
+          <span class="eyebrow">
+            OTC ANALYZER
+          </span>
+
+          <h2>OTC Market Analysis</h2>
+
+          <p>
+            Upload an OTC chart and receive a multi-AI directional analysis.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <div class="upload-panel">
+
+        <label
+          for="otcChartInput"
+          class="upload-area"
+          id="otcUploadArea"
+        >
+
+          <div class="upload-icon">
+            🧪
+          </div>
+
+          <h3>
+            Upload OTC Chart
+          </h3>
+
+          <p>
+            JPG, JPEG, PNG or WEBP
+          </p>
+
+          <span class="upload-hint">
+            Tap here to choose an image
+          </span>
+
+        </label>
+
+
+        <input
+          id="otcChartInput"
+          type="file"
+          accept="image/png,image/jpeg,image/webp"
+          hidden
+        />
+
+
+        <div
+          id="otcPreview"
+          class="image-preview"
+          hidden
+        >
+
+          <img
+            id="otcPreviewImage"
+            src=""
+            alt="OTC Chart Preview"
+          >
+
+          <button
+            id="removeOtcImage"
+            class="remove-image"
+            type="button"
+          >
+            ×
+          </button>
+
+        </div>
+
+
+        <div class="form-group">
+
+          <label for="otcTimeframe">
+            Chart Timeframe
+          </label>
+
+          <select id="otcTimeframe">
+
+            <option value="1m">1 Minute</option>
+            <option value="5m">5 Minutes</option>
+            <option value="15m">15 Minutes</option>
+            <option value="30m">30 Minutes</option>
+            <option value="1h">1 Hour</option>
+
+          </select>
+
+        </div>
+
+
+        <button
+          id="otcAnalyzeBtn"
+          class="main-action-btn"
+          type="button"
+        >
+          🧪 Analyze OTC Market
+        </button>
+
+
+        <div
+          id="otcLoading"
+          class="loading-box"
+          hidden
+        >
+
+          <div class="loader"></div>
+
+          <span>
+            AI is analyzing OTC chart...
+          </span>
+
+        </div>
+
+
+        <div
+          id="otcResult"
+          class="result-box"
+          hidden
+        >
+
+          <div class="result-header">
+
+            <span>
+              Final OTC Signal
+            </span>
+
+            <span id="otcConfidence">
+              --%
+            </span>
+
+          </div>
+
+          <div
+            id="otcDirection"
+            class="signal-direction"
+          >
+            WAITING
+          </div>
+
+          <div
+            id="otcReason"
+            class="signal-reason"
+          ></div>
+
+          <div
+            id="otcVotes"
+            class="ai-votes"
+          ></div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         SETTINGS
+    ========================== -->
+    <section
+      id="settingsSection"
+      class="app-section"
+    >
+
+      <div class="section-title">
+
+        <div>
+
+          <span class="eyebrow">
+            CONFIGURATION
+          </span>
+
+          <h2>Settings</h2>
+
+          <p>
+            Application and analysis settings.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <div class="settings-grid">
+
+
+        <div class="setting-card">
+
+          <div class="setting-info">
+
+            <strong>
+              Multi-AI Voting
+            </strong>
+
+            <small>
+              Use multiple AI providers for consensus.
+            </small>
+
+          </div>
+
+          <span class="setting-status">
+            ON
+          </span>
+
+        </div>
+
+
+        <div class="setting-card">
+
+          <div class="setting-info">
+
+            <strong>
+              Confidence Score
+            </strong>
+
+            <small>
+              Display estimated AI confidence.
+            </small>
+
+          </div>
+
+          <span class="setting-status">
+            ON
+          </span>
+
+        </div>
+
+
+        <div class="setting-card">
+
+          <div class="setting-info">
+
+            <strong>
+              PWA Installation
+            </strong>
+
+            <small>
+              Install AI Analyses as an app.
+            </small>
+
+          </div>
+
+          <span class="setting-status">
+            READY
+          </span>
+
+        </div>
+
+      </div>
+
+
+      <div class="warning-card">
+
+        <strong>
+          ⚠️ Risk Notice
+        </strong>
+
+        <p>
+          AI-generated market signals are estimates, not guaranteed
+          predictions. Always perform your own research and risk management
+          before making trading decisions.
+        </p>
+
+      </div>
+
+    </section>
+
+
+  </main>
+
+
+  <!-- =========================
+       FOOTER
+  ========================== -->
+  <footer class="footer">
+
+    <div class="footer-brand">
+      <img
+        src="https://i.ibb.co/BV5L4b5t/IMG-20260907-210044-668.jpg"
+        alt="AI Analyses"
+      >
+
+      <span>
+        AI Analyses
+      </span>
+    </div>
+
+    <p>
+      Multi-AI Market Intelligence Platform
+    </p>
+
+    <small>
+      AI signals are informational only. No signal is guaranteed.
+    </small>
+
+  </footer>
+
+
+  <!-- =========================
+       JAVASCRIPT
+  ========================== -->
+  <script src="config.js"></script>
+  <script src="script.js"></script>
+
+</body>
+               </html>
