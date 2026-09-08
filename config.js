@@ -1,6 +1,6 @@
 /* =========================================================
    AI MARKET ANALYZER — MULTI AI CONFIG
-   Gemini + OpenAI/ChatGPT + Grok/xAI
+   Gemini + OpenAI/ChatGPT + DeepSeek
 ========================================================= */
 
 "use strict";
@@ -12,14 +12,17 @@ const CONFIG = {
   ------------------------------------------------------- */
 
   APP_NAME: "AI Market Analyzer",
-  VERSION: "2.0.0",
+  VERSION: "3.0.0",
+
 
   /* -------------------------------------------------------
      GENERAL ANALYSIS
   ------------------------------------------------------- */
 
   analysis: {
+
     maxAnalysisTime: 35000,
+
     autoStartAfterUpload: false,
 
     supportedImageTypes: [
@@ -61,36 +64,87 @@ Identify:
 
 If the chart is unclear, say so.
 
-Never invent exact prices that cannot be reasonably read from the chart.
+Never invent exact prices that cannot be reasonably
+read from the chart.
 
-Return a clear, structured analysis.
+Consider:
+
+- Market structure
+- Higher highs / lower highs
+- Higher lows / lower lows
+- Support and resistance
+- Breakout
+- Fake breakout
+- Rejection
+- Candlestick patterns
+- Momentum
+- Trend strength
+- Possible liquidity areas
+
+Return a clear and structured analysis.
+
+Use this general format:
+
+MARKET:
+TIMEFRAME:
+
+TREND:
+STRUCTURE:
+
+SUPPORT:
+RESISTANCE:
+
+MOMENTUM:
+
+BULLISH SCENARIO:
+BEARISH SCENARIO:
+
+SIGNAL:
+BUY / SELL / HOLD / UNCLEAR
+
+ENTRY ZONE:
+
+STOP LOSS:
+
+TAKE PROFIT:
+
+CONFIDENCE:
+RISK LEVEL:
+
+REASON:
 
 Always include a risk warning.
 
-This is educational market analysis, not guaranteed financial advice.
+This is educational market analysis,
+not guaranteed financial advice.
 `
   },
 
 
   /* -------------------------------------------------------
      API MODE
-     
-     "direct" = browser calls provider directly
-     "proxy"  = send request to your backend
+
+     direct = browser directly calls AI provider
+
+     proxy = request goes through your backend
+
+     IMPORTANT:
+     Direct mode exposes API keys in frontend.
+     Use proxy mode for production.
   ------------------------------------------------------- */
 
   apiMode: "direct",
 
 
   /* =======================================================
-     PROVIDERS
+     AI PROVIDERS
   ======================================================= */
 
   providers: {
 
 
     /* =====================================================
-       GOOGLE GEMINI
+       1. GOOGLE GEMINI
     ===================================================== */
 
     gemini: {
@@ -99,7 +153,7 @@ This is educational market analysis, not guaranteed financial advice.
 
       name: "Google Gemini",
 
-      apiKey: "",
+      apiKey: "AQ.Ab8RN6JhLtEIjQk7jfyymlkZywxGaIbGVdD8dKEDFDpV9IYuaw",
 
       endpoint:
         "https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent",
@@ -107,16 +161,19 @@ This is educational market analysis, not guaranteed financial advice.
       model:
         "gemini-2.5-flash",
 
-      timeout: 35000,
+      timeout:
+        35000,
 
-      temperature: 0.2,
+      temperature:
+        0.2,
 
-      maxOutputTokens: 3000
+      maxOutputTokens:
+        3000
     },
 
 
     /* =====================================================
-       OPENAI / CHATGPT
+       2. OPENAI / CHATGPT
     ===================================================== */
 
     openai: {
@@ -125,7 +182,7 @@ This is educational market analysis, not guaranteed financial advice.
 
       name: "OpenAI / ChatGPT",
 
-      apiKey: "",
+      apiKey: "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",
 
       endpoint:
         "https://api.openai.com/v1/responses",
@@ -133,37 +190,43 @@ This is educational market analysis, not guaranteed financial advice.
       model:
         "gpt-5",
 
-      timeout: 35000,
+      timeout:
+        35000,
 
-      temperature: 0.2,
+      temperature:
+        0.2,
 
-      maxOutputTokens: 3000
+      maxOutputTokens:
+        3000
     },
 
 
     /* =====================================================
-       GROK / xAI
+       3. DEEPSEEK
     ===================================================== */
 
-    grok: {
+    deepseek: {
 
       enabled: true,
 
-      name: "Grok / xAI",
+      name: "DeepSeek",
 
-      apiKey: "",
+      apiKey: "sk-f8c41f5b19b54bb7a92a5507a85dd22f",
 
       endpoint:
-        "https://api.x.ai/v1/responses",
+        "https://api.deepseek.com",
 
       model:
-        "grok-4.6",
+        "deepseek-chat",
 
-      timeout: 35000,
+      timeout:
+        35000,
 
-      temperature: 0.2,
+      temperature:
+        0.2,
 
-      maxOutputTokens: 3000
+      maxOutputTokens:
+        3000
     }
 
   },
@@ -171,34 +234,67 @@ This is educational market analysis, not guaranteed financial advice.
 
   /* =======================================================
      DEFAULT PROVIDER
+
+     If multiAI = false,
+     this provider will analyze the chart.
   ======================================================= */
 
-  defaultProvider: "gemini",
+  defaultProvider:
+    "gemini",
 
 
   /* =======================================================
      MULTI AI MODE
-     
-     false:
-       One selected AI analyzes the chart.
 
      true:
-       All enabled AIs analyze the chart and the system
-       combines their results.
+       Gemini + OpenAI + DeepSeek
+       all analyze the chart.
+
+     false:
+       Only defaultProvider is used.
   ======================================================= */
 
-  multiAI: true,
+  multiAI:
+    true,
 
 
   /* =======================================================
      PROVIDER ORDER
+
+     The system will use this order.
   ======================================================= */
 
   providerOrder: [
+
     "gemini",
+
     "openai",
-    "grok"
+
+    "deepseek"
+
   ],
+
+
+  /* =======================================================
+     MULTI AI CONSENSUS
+  ======================================================= */
+
+  consensus: {
+
+    enabled: true,
+
+    minimumProviders:
+      2,
+
+    showIndividualResults:
+      true,
+
+    showFinalConsensus:
+      true,
+
+    confidenceCalculation:
+      "weighted-consensus"
+  },
 
 
   /* =======================================================
@@ -207,30 +303,51 @@ This is educational market analysis, not guaranteed financial advice.
 
   futureSignals: {
 
-    count: 10,
+    count:
+      10,
 
     markets: [
+
       "EUR/USD",
+
       "GBP/USD",
+
       "USD/JPY",
+
       "USD/CHF",
+
       "AUD/USD",
+
       "USD/CAD",
+
       "NZD/USD",
+
       "EUR/GBP",
+
       "EUR/JPY",
+
       "GBP/JPY",
+
       "XAU/USD",
+
       "BTC/USD"
+
     ],
 
     timeframes: [
+
       "1m",
+
       "5m",
+
       "15m",
+
       "30m",
+
       "1h",
+
       "4h"
+
     ]
   },
 
@@ -241,18 +358,61 @@ This is educational market analysis, not guaranteed financial advice.
 
   otc: {
 
-    enabled: true,
+    enabled:
+      true,
 
     markets: [
+
       "EUR/USD OTC",
+
       "GBP/USD OTC",
+
       "USD/JPY OTC",
+
       "AUD/USD OTC",
+
       "USD/CAD OTC",
+
       "XAU/USD OTC"
+
     ],
 
-    defaultTimeframe: "1m"
+    defaultTimeframe:
+      "1m"
+  },
+
+
+  /* =======================================================
+     API RETRY
+  ======================================================= */
+
+  retry: {
+
+    enabled:
+      true,
+
+    maxAttempts:
+      2,
+
+    delay:
+      1000
+  },
+
+
+  /* =======================================================
+     ERROR HANDLING
+  ======================================================= */
+
+  errors: {
+
+    continueIfOneProviderFails:
+      true,
+
+    showProviderErrors:
+      true,
+
+    fallbackToDemo:
+      true
   },
 
 
@@ -262,15 +422,26 @@ This is educational market analysis, not guaranteed financial advice.
 
   ui: {
 
-    toastDuration: 3000,
+    toastDuration:
+      3000,
 
-    pageAnimation: true,
+    pageAnimation:
+      true,
 
-    showProviderName: true,
+    showProviderName:
+      true,
 
-    showConfidence: true,
+    showConfidence:
+      true,
 
-    showRiskWarning: true
+    showRiskWarning:
+      true,
+
+    showIndividualAIResults:
+      true,
+
+    showConsensus:
+      true
   }
 
 };
@@ -280,11 +451,13 @@ This is educational market analysis, not guaranteed financial advice.
    GLOBAL CONFIG
 ========================================================= */
 
-window.MARKET_ANALYZER_CONFIG = CONFIG;
+window.MARKET_ANALYZER_CONFIG =
+  CONFIG;
 
 
 /* =========================================================
    BACKWARD COMPATIBILITY
 ========================================================= */
 
-window.CONFIG = CONFIG;
+window.CONFIG =
+  CONFIG;
